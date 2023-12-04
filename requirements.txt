@@ -1,7 +1,8 @@
-Flask==2.0.1
+Flask
 numpy
 requests==2.26.0
 fhir-parser
 matplotlib==3.4.3
 seaborn==0.11.2
 gunicorn
+Werkzeug
