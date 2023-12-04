@@ -1,6 +1,6 @@
 Flask==2.0.1
 numpy==1.21.1
 requests==2.26.0
-fhir-parser==0.1.7
+fhir-parser
 matplotlib==3.4.3
 seaborn==0.11.2
