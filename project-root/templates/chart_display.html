@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis App</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Workout Risk Analysis</h1>
+
+    <div class="tab-container">
+        <a href="#" class="tab" onclick="showTab('tab1')">Workout Risk Chart</a>
+        <a href="#" class="tab" onclick="showTab('tab2')">Workout Risk Explained</a>
+    </div>
+
+    <div id="tab1" class="tab-content">
+        <!-- Display graph -->
+        <img src="{{ img_data }}" alt="Risk Analysis Chart">
+    </div>
+
+    <div id="tab2" class="tab-content">
+        <!-- Display text or chart -->
+        <p>• {{ variable1 }}</p>
+        <p>• {{ variable2 }}</p>
+    </div>
+
+    <a href="{{ url_for('logout') }}" class="button">Logout</a>
+
+    <script>
+        function showTab(tabId) {
+            var tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(function (tabContent) {
+                tabContent.style.display = 'none';
+            });
+
+            var tabs = document.querySelectorAll('.tab');
+            tabs.forEach(function (tab) {
+                tab.classList.remove('active-tab');
+            });
+
+
+            var selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.style.display = 'block';
+            }
+
+            var clickedTab = document.querySelector(`[onclick="showTab('${tabId}')]`);
+            if (clickedTab) {
+                clickedTab.classList.add('active-tab');
+            }
+        }
+    </script>
+</body>
+</html>
+
