@@ -18,6 +18,7 @@ app.secret_key = 'taylorswift'
 data_folder = os.path.join(os.getcwd(), 'data')
 static_folder = os.path.join(os.getcwd(), 'static')
 fhirobj = FHIR()
+port = int(os.environ.get("PORT", 5000))
 
 @app.route('/')
 def index():
@@ -118,7 +119,9 @@ def serve_static(filename):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    
+#app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port)
 
 #something i can try is to retrieve the patient from the server (like previously uploaded) then add the risk exention
 #to do this, i would have to rename their IDs to their names from synthea
