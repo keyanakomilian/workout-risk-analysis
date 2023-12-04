@@ -83,7 +83,7 @@ def upload_file():
     print('fhir id', fhirID)
     #fhirID = "421e45e2-0ad3-e5c3-9e0f-2cb25f672354"
      #search for patient based on fhir id
-    search_url = f'http://localhost:8080/fhir/Patient?identifier={fhirID}'
+    search_url = f'https://96c3-2607-fb90-e30b-34b-49ae-4472-4a60-c49f.ngrok-free.app/fhir/Patient?identifier={fhirID}'
     search_response = requests.get(search_url)
 
     if search_response.status_code == 200:
@@ -99,7 +99,7 @@ def upload_file():
             existing_patient_data['extension'] = [{'url': 'risk', 'valueDecimal': result}]
 
             #update resource on server
-            update_url = f'http://localhost:8080/fhir/Patient/{existing_patient_id}'
+            update_url = f'https://96c3-2607-fb90-e30b-34b-49ae-4472-4a60-c49f.ngrok-free.app/fhir/Patient/{existing_patient_id}'
             update_response = requests.put(update_url, json=existing_patient_data)
 
             if update_response.status_code == 200:
